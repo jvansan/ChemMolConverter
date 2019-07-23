@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+    {% if result is not none %}
+        <p><b>SMILES</b>:<br/> {{result['smiles']}} </p>
+        <p><b>InChI</b>:<br/> {{result['inchi']}} </p>
+        <p><b>InChIKey</b>:<br/> {{result['inchikey']}} </p>
+        <p>
+            <b>MDL Molblock</b>:<br/> 
+            {% autoescape false %}
+                {{ result['mb'] |  replace("\n", "<br/>") }}
+            {% endautoescape %}
+        </p>
+     {% else %}
+        Unable to process input.
+     {% endif %}
+</div>
+<div>
+    <a href="/">Go Back</a>
+</div>
+
+{% endblock %}

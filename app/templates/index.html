@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <form action="" method="post" novalidate>
+    {{ form.csrf_token }}
+    {{ form.choices.label }} {{ form.choices() }}
+    {{ form.value.label }} {{ form.value(size=48) }}
+    {{ form.submit() }}
+  </form>
+{% endblock %}
